@@ -12,6 +12,7 @@ Features
 - Screen wrap for player and asteroids
 - Shots do not wrap; bullets expire or despawn off-screen
 - Scoring with on-screen HUD (small/medium/large: 100/50/20)
+- Background image support with animated parallax starfield fallback
 
 Requirements
 ------------
@@ -40,6 +41,11 @@ Gameplay Notes
 - Colliding with an asteroid ends the game.
 - Bullets expire after ~1.5 seconds.
 - Player and asteroids wrap around screen edges; shots do not.
+
+Backgrounds
+-----------
+- Static image: place `assets/background.png` (auto-scaled to `1280x720`).
+- No image: an animated multi-layer parallax starfield is rendered.
 
 Next Ideas
 ----------

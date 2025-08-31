@@ -5,6 +5,7 @@ from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
 from shot import Shot
+from starfield import Starfield
 
 
 def main():
@@ -12,6 +13,15 @@ def main():
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     clock = pygame.time.Clock()
     font = pygame.font.Font(None, 36)
+    
+    # Load background image if present; otherwise use animated parallax starfield
+    try:
+        bg = pygame.image.load("assets/background.png").convert()
+        background_surface = pygame.transform.scale(bg, (SCREEN_WIDTH, SCREEN_HEIGHT))
+        starfield = None
+    except Exception:
+        background_surface = None
+        starfield = Starfield()
 
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
@@ -48,7 +58,12 @@ def main():
                     score += asteroid.get_score_value()
                     asteroid.split()
 
-        screen.fill("black")
+        if background_surface is not None:
+            screen.blit(background_surface, (0, 0))
+        else:
+            screen.fill("black")
+            starfield.update(dt)
+            starfield.draw(screen)
 
         for obj in drawable:
             obj.draw(screen)
