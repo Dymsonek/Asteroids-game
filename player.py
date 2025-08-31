@@ -35,6 +35,8 @@ class Player(CircleShape):
             self.rotate(dt)
         if keys[pygame.K_SPACE]:
             self.shoot()
+        
+        self.wrap_position()
 
     def shoot(self):
         if self.shoot_timer > 0:

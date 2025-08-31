@@ -13,6 +13,7 @@ class Asteroid(CircleShape):
 
     def update(self, dt):
         self.position += self.velocity * dt
+        self.wrap_position()
 
     def split(self):
         self.kill()
@@ -30,3 +31,7 @@ class Asteroid(CircleShape):
         asteroid.velocity = a * 1.2
         asteroid = Asteroid(self.position.x, self.position.y, new_radius)
         asteroid.velocity = b * 1.2
+
+    def get_score_value(self):
+        kind = int(self.radius / ASTEROID_MIN_RADIUS)
+        return ASTEROID_POINTS.get(kind, 0)

@@ -14,4 +14,11 @@ PLAYER_SHOOT_COOLDOWN = 0.3  # seconds
 PLAYER_SHOOT_SPEED = 500
 
 SHOT_RADIUS = 5
+SHOT_LIFETIME = 1.5  # seconds
 
+# Scoring values per asteroid kind (1=small, 3=large)
+ASTEROID_POINTS = {
+    1: 100,  # small
+    2: 50,   # medium
+    3: 20,   # large
+}
