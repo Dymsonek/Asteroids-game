@@ -22,3 +22,6 @@ ASTEROID_POINTS = {
     2: 50,   # medium
     3: 20,   # large
 }
+
+# Visual effects
+EXPLOSION_DURATION = 0.45  # seconds

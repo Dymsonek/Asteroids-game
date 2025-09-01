@@ -6,6 +6,7 @@ from asteroid import Asteroid
 from asteroidfield import AsteroidField
 from shot import Shot
 from starfield import Starfield
+from explosion import Explosion
 
 
 def main():
@@ -30,6 +31,7 @@ def main():
 
     Asteroid.containers = (asteroids, updatable, drawable)
     Shot.containers = (shots, updatable, drawable)
+    Explosion.containers = (updatable, drawable)
     AsteroidField.containers = updatable
     asteroid_field = AsteroidField()
 
