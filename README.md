@@ -14,6 +14,8 @@ Features
 - Shots do not wrap; bullets expire or despawn off-screen
 - Scoring with on-screen HUD (small/medium/large: 100/50/20)
 - Background image support with animated parallax starfield fallback
+ - High score persistence with leader display (saved to `highscore.json`)
+ - Name prompt shown when you set a new high score
 
 Requirements
 ------------
@@ -52,8 +54,7 @@ Next Ideas
 ----------
 - Lives and respawn
 - Sound effects and particle explosions
-- Sound effects and particle explosions
-- High score persistence
+ - Sound effects and particle explosions
 
 Modes
 -----
