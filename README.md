@@ -7,6 +7,7 @@ Features
 --------
 - Player ship with rotation and thrust (W/S/A/D)
 - Shooting with cooldown (Space)
+- Wave-based level progression with increasing difficulty
 - Asteroids spawn from screen edges and drift inward
 - Asteroids split into two smaller on hit
 - Screen wrap for player and asteroids
@@ -50,6 +51,11 @@ Backgrounds
 Next Ideas
 ----------
 - Lives and respawn
-- Level progression and waves
+- Sound effects and particle explosions
 - Sound effects and particle explosions
 - High score persistence
+
+Modes
+-----
+- Wave mode (default): Spawns a new wave when all asteroids are cleared. Level count and HUD are shown.
+- Continuous mode: To switch back to endless spawns, set `ASTEROID_SPAWN_MODE = "continuous"` in `constants.py`.

@@ -7,6 +7,7 @@ from asteroidfield import AsteroidField
 from shot import Shot
 from starfield import Starfield
 from explosion import Explosion
+from levelmanager import LevelManager
 
 
 def main():
@@ -15,7 +16,6 @@ def main():
     clock = pygame.time.Clock()
     font = pygame.font.Font(None, 36)
     
-    # Load background image if present; otherwise use animated parallax starfield
     try:
         bg = pygame.image.load("assets/background.png").convert()
         background_surface = pygame.transform.scale(bg, (SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -41,6 +41,7 @@ def main():
 
     dt = 0
     score = 0
+    level_mgr = LevelManager(asteroid_field, asteroids)
 
     while True:
         for event in pygame.event.get():
@@ -48,6 +49,7 @@ def main():
                 return
 
         updatable.update(dt)
+        level_mgr.update(dt)
 
         for asteroid in list(asteroids):
             if asteroid.collides_with(player):
@@ -70,13 +72,13 @@ def main():
         for obj in drawable:
             obj.draw(screen)
 
-        # Draw HUD
         score_surf = font.render(f"Score: {score}", True, pygame.Color("white"))
+        level_surf = font.render(f"Level: {level_mgr.level}", True, pygame.Color("white"))
         screen.blit(score_surf, (10, 10))
+        screen.blit(level_surf, (10, 40))
 
         pygame.display.flip()
 
-        # limit the framerate to 60 FPS
         dt = clock.tick(60) / 1000
 
 
